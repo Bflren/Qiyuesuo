@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 public class Upload {
 
     public static void main(String[] args) throws Exception {
+        //上传地址，服务器开启
         URL url = new URL("http://127.0.0.1:8080/upload");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -23,6 +24,7 @@ public class Upload {
         urlConnection.setDoOutput(true);
 
 
+        //设置请求头
         urlConnection.setRequestProperty("Connection", "Keep-Alive");
         urlConnection.setRequestProperty("Content-Type" ,"application/x-www-form-urlencoded;charset=UTF-8");
         urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.6)");
