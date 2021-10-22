@@ -8,7 +8,7 @@ import java.net.URL;
 public class GetMetaData {
 
     public static void main(String[] args) throws Exception {
-        //请求地址
+        //请求地址，参数：生成的文件名
         URL url = new URL("http://127.0.0.1:8080/getMetaData?fileName=e83f2f36-0240-4096-8366-97f59eb085c2.pdf");
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
