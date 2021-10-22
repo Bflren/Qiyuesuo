@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.qiyuesuo.mapper.MetaDataMapper">
+
+    <insert id="addRecord" parameterType="com.example.qiyuesuo.entity.MetaData">
+        insert into metadata.meta( size, type, file_name, original_name, address)
+        values ( #{size},#{type},#{fileName},#{originalName},#{address})
+    </insert>
+    <select id="findPathByFileName" parameterType="String" resultType="java.lang.String">
+        select address from metadata.meta where file_name = #{fileName}
+    </select>
+    <select id="findMetaByFileName" parameterType="String" resultType="com.example.qiyuesuo.entity.MetaData">
+        select * from metadata.meta where file_name = #{fileName}
+    </select>
+</mapper>
