@@ -25,6 +25,7 @@ public class Download {
         }
         inputStream.close();
         outputStream.close();
+        urlConnection.disconnect();
         System.out.println("下载完成");
     }
 }
