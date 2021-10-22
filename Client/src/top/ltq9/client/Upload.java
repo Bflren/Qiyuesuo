@@ -10,7 +10,7 @@ public class Upload {
         URL url = new URL("http://127.0.0.1:8080/upload");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-        String path = "C://Users/5211314/Desktop/契约锁2021年JAVA校招测试题.pdf";
+        String path = "D://Test/契约锁2021年JAVA校招测试题.pdf";
         String type = path.split("\\.")[1];
         File file = new File(path);
         FileInputStream fis = new FileInputStream(file);
@@ -26,14 +26,14 @@ public class Upload {
         urlConnection.setRequestProperty("Connection", "Keep-Alive");
         urlConnection.setRequestProperty("Content-Type" ,"application/x-www-form-urlencoded;charset=UTF-8");
         urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.6)");
+        //文件信息设置在请求头中
         urlConnection.setRequestProperty("fileName", URLEncoder.encode(file.getName(), "UTF-8"));
         urlConnection.setRequestProperty("type",type);
         urlConnection.setRequestProperty("size", String.valueOf(file.length()));
 
         //获得向请求写入数据的流
         OutputStream outputStream = urlConnection.getOutputStream();
-        String f = "&file";
-        outputStream.write(f.getBytes(StandardCharsets.UTF_8));
+        
         int data;
         while((data=fis.read())!=-1){
             outputStream.write(data);
