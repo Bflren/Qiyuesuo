@@ -23,5 +23,6 @@ public class GetMetaData {
         }
         inputStream.close();
         outputStream.close();
+        urlConnection.disconnect();
     }
 }
