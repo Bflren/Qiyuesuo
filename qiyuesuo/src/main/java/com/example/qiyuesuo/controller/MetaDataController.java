@@ -46,6 +46,7 @@ public class MetaDataController {
     @PostMapping("/upload")
     @ResponseBody
     public void upload( HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //获得请求输入流
         ServletInputStream inputStream = request.getInputStream();
 
         //生成新文件名UUID
@@ -94,7 +95,7 @@ public class MetaDataController {
     @GetMapping(value = "/download")
     public ResponseEntity<byte[]> download(String fileName,HttpServletResponse response){
 
-        //获取文件路径
+        //查询数据库，获取文件路径
         String path = metaDataService.findPathByFileName(fileName);
 
         //创建字节输入流
@@ -124,6 +125,7 @@ public class MetaDataController {
     @GetMapping("/getMetaData")
     @ResponseBody
     public MetaData getMetaData(String fileName){
+        //查询数据库
         MetaData metaData = metaDataService.findMetaByFileName(fileName);
         return metaData;
     }
